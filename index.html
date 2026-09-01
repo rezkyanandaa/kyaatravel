@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KYAA'S TRAVEL PLANNER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar / Nav -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">✈️</span>
+          <div class="logo-text">
+            <span class="logo-title">KYAA'S</span>
+            <span class="logo-sub">Travel Planner</span>
+          </div>
+        </div>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">🏠</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-page="trips">
+          <span class="nav-icon">🗺️</span>
+          <span>My Trips</span>
+        </button>
+        <button class="nav-item" data-page="explore">
+          <span class="nav-icon">🌎</span>
+          <span>Explore</span>
+        </button>
+        <button class="nav-item" data-page="favorites">
+          <span class="nav-icon">❤️</span>
+          <span>Favorites</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+          <span>Dark Mode</span>
+        </button>
+        <div class="user-chip">
+          <div class="avatar">K</div>
+          <span>Kyaa</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile bottom nav -->
+    <nav class="mobile-nav" id="mobileNav">
+      <button class="mobile-nav-item active" data-page="dashboard">
+        <span>🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="mobile-nav-item" data-page="trips">
+        <span>🗺️</span>
+        <span>Trips</span>
+      </button>
+      <button class="mobile-nav-item" data-page="explore">
+        <span>🌎</span>
+        <span>Explore</span>
+      </button>
+      <button class="mobile-nav-item" data-page="favorites">
+        <span>❤️</span>
+        <span>Favs</span>
+      </button>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="search-wrap">
+          <input type="search" id="globalSearch" placeholder="Search trips, places, journals…" />
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="notifBtn" title="Notifications">
+            🔔
+            <span class="badge" id="notifBadge" hidden>0</span>
+          </button>
+          <button class="btn btn-primary" id="newTripBtn">+ New Trip</button>
+        </div>
+      </header>
+
+      <div class="content" id="content">
+        <!-- Pages injected here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Modal</h2>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Notifications panel -->
+  <div class="notif-panel" id="notifPanel" hidden>
+    <div class="notif-header">
+      <h3>Notifications</h3>
+      <button id="clearNotifs">Clear all</button>
+    </div>
+    <div class="notif-list" id="notifList"></div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
